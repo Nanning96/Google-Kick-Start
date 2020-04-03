@@ -1,0 +1,46 @@
+package com.company;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int index = 0;
+        while (t-- != 0) {
+            String result = "";
+            index++;
+            int population = sc.nextInt();
+            ArrayList<String> peeps = new ArrayList<>();
+            for (int i = 0; i <=population; i++) {
+                peeps.add(sc.nextLine());
+            }
+            Collections.sort(peeps);
+            ArrayList <Integer> counts = new ArrayList<>();
+            for (int o=0; o<peeps.size(); o++) {
+                counts.add(countUnique(peeps.get(o)));
+            }
+            int save = Collections.max(counts);
+            int print = counts.indexOf(save);
+            System.out.println("Case #" + index + ": " + peeps.get(print));
+        }
+    }
+
+    public static int countUnique(String input) {
+        int count = 0;
+        boolean[] exist = new boolean[Character.MAX_VALUE];
+        for (int i=0; i<input.length(); i++) {
+            if (input.charAt(i) == ' ') {
+                //doe niets
+            }
+            else {
+                exist[input.charAt(i)] = true;
+            }
+        }
+        for (boolean loop : exist) {
+            if (loop == true) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
