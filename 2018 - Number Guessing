@@ -1,0 +1,29 @@
+package com.company;
+import java.util.*;
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- != 0) {
+            int a = sc.nextInt(), b = sc.nextInt();
+            int tries = sc.nextInt();
+            sc.nextLine();
+            int save =0;
+            while (tries-- != 0) {
+                int randomInt = (a + b) / 2;
+                System.out.println(randomInt);
+                String answer = sc.nextLine();
+                if (save == randomInt) {
+                    randomInt++;
+                }
+                if (answer.equals("TOO_SMALL")) {
+                    a = randomInt + 1;
+                } if (save == randomInt) {
+                    randomInt--;
+                } if (answer.equals("TOO_BIG")) {
+                    b = randomInt - 1;
+                } if (answer.equals("CORRECT") || answer.equals("WRONG_ANSWER")) {
+                    break;
+                }
+        save = randomInt; }}}}
