@@ -3,20 +3,15 @@ import java.util.*;
 class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> lines = new ArrayList<>();
-        ArrayList<Integer>indexes = new ArrayList<>();
         int t = sc.nextInt();
         int index = 0;
 
         while (t-- != 0) {
             index++;
-            lines.clear();
-            indexes.clear();
-            int count1 = 0;
-            int count2 = 0;
-            long subtract = 0;
-            int z = 0;
-            long winning;
+            ArrayList<String> lines = new ArrayList<>();
+            ArrayList<Integer>indexes = new ArrayList<>();
+            int count1 = 0, count2 = 0;
+            long subtract = 0, winning = 0;
             int n = sc.nextInt(), p = sc.nextInt();
             sc.nextLine();
             winning = (long) Math.pow(2, n);
@@ -29,7 +24,7 @@ class Solution {
                         indexes.add(i);
                         break;}}}
             for (Integer integer : indexes) {
-                z = integer;
+                int z = integer;
                 lines.remove(z); }
             for (String loop1: lines) {
                 subtract += (long) Math.pow(2, n-loop1.length()); }
